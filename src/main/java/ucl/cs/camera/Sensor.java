@@ -1,4 +1,4 @@
-package ic.doc.camera;
+package ucl.cs.camera;
 
 public interface Sensor {
 

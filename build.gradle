@@ -2,10 +2,10 @@ apply plugin: 'java'
 apply plugin: 'jacoco'
 apply plugin: 'checkstyle'
 
-group = 'uk.ac.ic.doc'
+group = 'uk.ac.ucl.cs'
 version = '1.0.0'
 
-description = """220 CBT 2"""
+description = """203P Exercise 2"""
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
