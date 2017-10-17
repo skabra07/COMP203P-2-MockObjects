@@ -1,17 +1,40 @@
 package ucl.cs.camera;
 
-public class Camera {
+public class Camera implements WriteListener {
+
+  private Sensor sensor;
+    private MemoryCard memoryCard;
+    private boolean power;
+    private boolean writing;
+
+  public Camera(Sensor sensor, MemoryCard memoryCard) {
+      this.sensor = sensor;
+      this.memoryCard = memoryCard;
+  }
 
   public void pressShutter() {
-    // not implemented
+      if (power){
+          byte[] data = sensor.readData();
+          memoryCard.write(data);
+          writing = true;
+      }
   }
 
   public void powerOn() {
-    // not implemented
+      sensor.powerUp();
+      power = true;
   }
 
   public void powerOff() {
-    // not implemented
+      if(!writing){
+          sensor.powerDown();
+          power = false;
+      }
   }
+
+    @Override
+    public void writeComplete() {
+        writing = false;
+    }
 }
 
